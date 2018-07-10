@@ -1,4 +1,6 @@
 package practice02;
 
-public class Student {
+import Person.practice02;
+
+public class Student extends Person {
 }
