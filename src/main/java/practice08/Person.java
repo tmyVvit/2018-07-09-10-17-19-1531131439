@@ -28,8 +28,4 @@ public class Person {
         }
         return super.equals(obj);
     }
-//
-//    public boolean equals(Person person) {
-//        return id == person.getId();
-//    }
 }
