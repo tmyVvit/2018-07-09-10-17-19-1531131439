@@ -50,13 +50,5 @@ public class Teacher extends Person{
         }
         return isTeach;
     }
-
-    public static void main(String args) {
-        LinkedList<practice10.Klass> linkedList = new LinkedList<Klass>();
-        Klass klass3 = new Klass(3);
-        Klass klass2 = new Klass(2);
-        linkedList.add(klass2);
-        linkedList.add(klass3);
-        Teacher tom = new Teacher(1, "Tom", 21, linkedList);
-    }
+    
 }
