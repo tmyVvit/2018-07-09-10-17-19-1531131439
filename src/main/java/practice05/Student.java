@@ -8,7 +8,7 @@ public class Student extends Person {
     }
 
     public String introduce() {
-        return String.format("%s I am a Student. I am at Class %d.", basicIntroduce(), klass);
+        return String.format("%s I am a Student. I am at Class %d.", super.introduce(), klass);
     }
 
     public int getKlass() {
