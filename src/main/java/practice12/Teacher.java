@@ -1,9 +1,9 @@
-package practice11;
+package practice12;
 
 import java.util.LinkedList;
 
-public class Teacher extends Person{
-    private LinkedList<Klass> klasses = new LinkedList();
+public class Teacher extends Person implements XInterface{
+    private LinkedList<Klass> klasses = new LinkedList<Klass>();
     public Teacher(int _id, String _name, int _age) {
         super(_id, _name, _age);
     }
@@ -21,9 +21,7 @@ public class Teacher extends Person{
     @Override
     public String introduce() {
         StringBuilder teachOrNot;
-        if (klasses.size() == 0) {
-            teachOrNot = new StringBuilder("No Class");
-        } else {
+        if(klasses.size() != 0) {
             teachOrNot = new StringBuilder("Class ");
             for(Klass klass:klasses){
                 String tmp = String.valueOf((klass.getNumber()));
@@ -31,7 +29,7 @@ public class Teacher extends Person{
                 if(klasses.getLast()!=klass)
                     teachOrNot.append(", ");
             }
-        }
+        }else {teachOrNot = new StringBuilder("No Class");}
         return super.introduce()+String.format(" I am a Teacher. I teach %s.", teachOrNot.toString());
     }
 
@@ -54,12 +52,13 @@ public class Teacher extends Person{
         return isTeach;
     }
 
-    public void notifyLeader(Student student) {
-        System.out.print(String.format("I am %s. I know %s become Leader of %s.\n", getName(), student.getName(), student.getKlass().getDisplayName()));
+    @Override
+    public void notifyLeader(Student student, Klass klass) {
+        System.out.print(String.format("I am %s. I know %s become Leader of %s.\n", getName(), student.getName(), klass.getDisplayName()));
     }
-
-    public void notifyMember(Student student) {
-        System.out.print(String.format("I am %s. I know %s has joined %s.\n", getName(), student.getName(), student.getKlass().getDisplayName()));
+    @Override
+    public void notifyMember(Student student, Klass klass) {
+        System.out.print(String.format("I am %s. I know %s has joined %s.\n", getName(), student.getName(), klass.getDisplayName()));
     }
 
 }
